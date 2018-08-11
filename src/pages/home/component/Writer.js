@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-class Writer extends Component {
+import React, { PureComponent } from 'react';
+class Writer extends PureComponent {
   constructor(props) {
     super(props)
   }

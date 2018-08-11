@@ -6,9 +6,8 @@ export const HeaderWrapper = styled.div`
  border-bottom: 1px solid #f0f0f0
 `
 
-export const Logo = styled.a.attrs({
-  href: '/'
-}) `
+export const Logo = styled.div
+  `
   position: absolute;
   top: 0;
   left: 0;
@@ -25,6 +24,7 @@ export const Nav = styled.div`
   padding-right: 70px;
   box-sizing: border-box;
   margin: 0 auto;
+
 `;
 
 export const NavItem = styled.div `
@@ -37,7 +37,8 @@ export const NavItem = styled.div `
   }
   &.right {
     float: right
-    color: #969696
+    color: #969696;
+    text-decoration: none;
   }
   &.active {
     color: #ea6f5a
@@ -45,7 +46,8 @@ export const NavItem = styled.div `
 `;
 export const SearchWrapper = styled.div `
   float: left;
-  position: relative;  
+  position: relative; 
+
   .slide-enter {
     width: 160px;
     transition: all .2s ease-out;
@@ -125,6 +127,7 @@ export const SearchInfo = styled.div `
  top: 56px;
  width: 240px
  padding: 0 20px;
+ background: #ffffff;
  box-shadow: 0 0 8px rgba(0, 0, 0, .2)
 `
 

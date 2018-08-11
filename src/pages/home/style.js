@@ -22,6 +22,7 @@ export const TopicWrapper = styled.div`
  padding: 20px 0 10px 0;
  overflow: hidden;
  margin-left: -18px;
+ border-bottom: 1px solid #dcdcdc
 `
 
 export const TopicItem = styled.div`
@@ -55,4 +56,65 @@ padding-right: 10px;
 border-radius: 4px;
 margin-bottom: 10px;
 cursor: pointer; 
+`;
+
+export const ListItem = styled.div`
+ padding: 20px 0;
+ border-bottom: 1px solid #dcdcdc;
+ overflow: hidden;
+ .pic {
+   width: 125px;
+   height: 100px;
+   display: block;
+   float: right;
+   border-radius: 10px;
+ }
+`;
+
+export const ListInfo = styled.div`
+  width: 500px;
+  float: left;
+  .title {
+    line-height: 27px;
+    font-size: 18px;
+    font-weight:bold;
+    color: #3333
+  }
+  .desc {
+    line-height: 24px;
+    font-size: 13px;
+    color: #999999
+
+  }
+`;
+
+export const RecommendItem = styled.div`
+  margin-bottom 4px;
+    .pic {
+      width: 100%; 
+      height: 50px
+   }
+`
+
+export const LoadMore = styled.div `
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  color: #ffffff;
+  background: #a5a5a5;
+  margin: 30px 0;
+  text-align: center;
+  cursor: pointer
+`;
+export const BackTop = styled.div`
+ position: fixed;
+ width: 60px;
+ height: 60px;
+ line-height: 60px;
+ text-align: center;
+ border: 1px solid #cccccc;
+ right: 100px;
+ bottom: 100px;
+ font-size: 12px;
 `

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+import { actionCreators as loginActionCreators } from '../../pages/login/store';
+import { Link } from 'react-router-dom';
 import {
     HeaderWrapper,
     Logo,
@@ -23,14 +25,19 @@ class Header extends Component {
         super(props)
     }
     render() {
-        const { focused, handleInputFocus, handleInputBlur, list } = this.props;
+        const { focused, handleInputFocus, handleInputBlur, handlelogout, list, login } = this.props;
         return (
             <HeaderWrapper>
-                <Logo />
+                <Link to='/'>
+                    <Logo />
+                </Link>
+
                 <Nav>
                     <NavItem className='left active'>首页</NavItem>
                     <NavItem className='left'>下载App</NavItem>
-                    <NavItem className='right'>登录</NavItem>
+                    {
+                        login ? <NavItem className='right' onClick={handlelogout}>退出</NavItem> : <NavItem className='right'><Link to='/login'>登录</Link></NavItem>
+                    }
                     <NavItem className='right'><i className='iconfont'>&#xe636;</i></NavItem>
                     <SearchWrapper>
                         <CSSTransition
@@ -59,9 +66,6 @@ class Header extends Component {
         const { list, page, totalPage, handleMouseEnter, handleMouseLeave, focused, mouseIn, handleSwitch } = this.props;
         const newList = list.toJS();
         const pageList = [];
-
-
-
         if (focused || mouseIn) {
             if (newList.length) {
                 for (let i = (page - 1) * 10; i < page * 10; i++) {
@@ -93,6 +97,7 @@ const mapStateToProps = (state) => {
         page: state.getIn(['header', 'page']),
         totalPage: state.getIn(['header', 'totalPage']),
         mouseIn: state.getIn(['header', 'mouseIn']),
+        login: state.getIn(['login', 'login']),
     }
 }
 
@@ -100,9 +105,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleInputFocus(list) {
             (list.size === 0) && dispatch(actionCreators.getList());
-            // if (list.size > 0) {
-            //     dispatch(actionCreators.getList());
-            //}
             dispatch(actionCreators.searchFoucs());
         },
         handleInputBlur() {
@@ -129,7 +131,9 @@ const mapDispatchToProps = (dispatch) => {
             } else {
                 dispatch(actionCreators.changePage(1))
             }
-
+        },
+        handlelogout() {
+            dispatch(loginActionCreators.logOut());
         }
     }
 }

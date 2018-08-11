@@ -4,6 +4,7 @@ class Detail extends Component {
     super(props)
   }
   render() {
+    console.log(this.props.match.params.id)
     return (
       <div>Home</div>
     )
