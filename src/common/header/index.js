@@ -21,9 +21,7 @@ import {
 } from './style'
 
 class Header extends Component {
-    constructor(props) {
-        super(props)
-    }
+  
     render() {
         const { focused, handleInputFocus, handleInputBlur, handlelogout, list, login } = this.props;
         return (
